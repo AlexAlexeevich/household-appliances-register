@@ -16,7 +16,6 @@ public class ExceptionHandlerController {
     @ExceptionHandler(SuchModelAlreadyExistException.class)
     public ResponseEntity<CustomErrorResponse> handleCardStatusNotActiveException(SuchModelAlreadyExistException e,
                                                                                   WebRequest request) {
-//        log.error(CardStatusNotActive.CARD_STATUS_NOT_ACTIVATED, e);
         CustomErrorResponse customErrorResponse = buildErrorResponse(e.getMessage(), HttpStatus.BAD_REQUEST, request);
         return new ResponseEntity<>(customErrorResponse, HttpStatus.BAD_REQUEST);
     }
